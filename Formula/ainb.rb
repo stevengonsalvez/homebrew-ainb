@@ -1,29 +1,15 @@
+# DEPRECATED TAP — ainb moved to the stevengonsalvez/agents-in-a-box tap.
+#
+#   brew untap stevengonsalvez/ainb
+#   brew tap stevengonsalvez/agents-in-a-box
+#   brew install ainb
+#
 class Ainb < Formula
-  desc "Terminal-based development environment manager for Claude Code agents"
+  desc "DEPRECATED — moved to the stevengonsalvez/agents-in-a-box tap"
   homepage "https://github.com/stevengonsalvez/agents-in-a-box"
-  license "MIT"
-  version "0.5.5-beta1"
+  url "https://github.com/stevengonsalvez/agents-in-a-box/releases/download/v1.4.0/ainb-1.4.0-aarch64-apple-darwin.tar.gz"
+  version "1.4.0"
+  sha256 "076a58399b9c31daca7ae7309c589a32c2d6bb8e15a5a1a4526b1b0e75ae4027"
 
-  on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/stevengonsalvez/agents-in-a-box/releases/download/v0.5.5-beta1/agents-box-0.5.5-beta1-aarch64-apple-darwin.tar.gz"
-      sha256 "7144812eda3846a12f6974d5c284cb54bf4fd36f8ba6c51c20a47d20afa06880"
-    end
-  end
-
-  on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/stevengonsalvez/agents-in-a-box/releases/download/v0.5.5-beta1/agents-box-0.5.5-beta1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "621a488ef1c3e7b7bba156d099c9113742fa6c06885be897834de6ecf3bf093a"
-    end
-  end
-
-  def install
-    bin.install "agents-box"
-    bin.install_symlink "agents-box" => "ainb"
-  end
-
-  test do
-    assert_match "agents-box", shell_output("#{bin}/agents-box --version")
-  end
+  disable! date: "2026-06-04", because: "this tap is deprecated; ainb moved to the stevengonsalvez/agents-in-a-box tap — run: brew untap stevengonsalvez/ainb && brew tap stevengonsalvez/agents-in-a-box && brew install ainb"
 end
